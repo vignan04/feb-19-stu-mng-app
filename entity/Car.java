@@ -1,4 +1,3 @@
-
 package com.stpeters.stu.marks.entity;
 
 import jakarta.persistence.Entity;

@@ -1,4 +1,3 @@
-
 package com.stpeters.stu.marks.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;

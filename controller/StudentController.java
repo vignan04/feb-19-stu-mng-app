@@ -1,9 +1,14 @@
 package com.stpeters.stu.marks.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.stpeters.stu.marks.entity.Student;
@@ -24,5 +29,24 @@ public class StudentController {
 		
 		return stuService.saveNewStudent(stu);
 	}
-
+	
+	@GetMapping("/stu/mng/get/all")
+	public List<Student> getAllStus(){
+		
+		return stuService.fetAllStudents();
+	}
+	
+	@GetMapping("/stu/mng/get/one")
+	public Student getOnleOneStu(@RequestParam int rollNo){
+		
+		return stuService.fetOnlyOneStudent(rollNo);
+	}
+	
+	@DeleteMapping("/stu/mng/del")
+	public String deleteStu(@RequestParam int rollNo){
+		
+		 stuService.deleteStu(rollNo);
+		 return "successfully deleted--->"+rollNo;
+	}
+	
 }
